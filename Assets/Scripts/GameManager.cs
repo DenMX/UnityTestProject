@@ -62,7 +62,12 @@ public class GameManager : MonoBehaviour
             var ships = 1;
             var asteroids = 1;
             
-            if(Score > 10 && Score < 20) //Имитация увеличения сложности при наборе N-очков.
+            if(Score < 10) //Имитация увеличения сложности при наборе N-очков.
+            {
+                ships = 1;
+                asteroids = 1;
+            }
+            else if(Score > 10 && Score < 20) 
             {
                 ships = 2;
                 asteroids = 2;
@@ -160,6 +165,7 @@ public class GameManager : MonoBehaviour
 
     public void Restart()
     {
+        ResetScore();
         SceneManager.LoadScene(0);
     }
 
